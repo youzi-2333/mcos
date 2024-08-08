@@ -3,7 +3,7 @@
 """
 
 # import sys
-# import time
+import time
 from minecraft.position import Position
 
 # from minecraft.world import world
@@ -19,6 +19,8 @@ def main():
     """
     # time.sleep(3)
     d = Disk(Position(0, 4, 0), Position(0, 4, 0).delta(16, 16, 16))
+    d.format()
+    print(d.bitmap)
 
 
 if __name__ == "__main__":

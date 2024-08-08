@@ -13,15 +13,13 @@ class Dentry:
     loc: int
     """位置。"""
     parent: int
-    """父目录指针。"""
+    """父目录目录项的指针。"""
     children: list[int]
-    """子文件指针列表。"""
+    """子文件目录项的指针列表。"""
     inode: int
     """索引节点指针。"""
     name: str
     """目录名。"""
-    data: str
-    """其它数据。"""
 
     @overload
     def load(self, data: bytes, ptr_len: int): ...
@@ -53,7 +51,6 @@ class Dentry:
                     )
 
                 self.name = data_list[1].decode()
-                self.data = data_list[2].decode()
             else:
                 raise TypeError(f"Invalid type of data: {type(data)}")
         except KeyError as e:
@@ -70,8 +67,6 @@ class Dentry:
             result.extend(hex(child)[2:].zfill(ptr_len).encode())
         result.extend(b",")
         result.extend(self.name.encode())
-        result.extend(b",")
-        result.extend(self.data.encode())
         return bytes(result)
 
     def todict(self):

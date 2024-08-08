@@ -1,0 +1,23 @@
+[build-system]
+requires = ["mcpi"]
+
+[project]
+name = "MinecraftOS"
+version = "0.1.0"
+description = "在 Minecraft 中还原一个简单的操作系统"
+authors = [{ name = "youzi-2333", email = "youzi5201086@163.com" }]
+license = "None"
+readme = "README.md"
+requires-python = ">=3.12"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: None",
+    "Operating System :: Windows",
+]
+
+[project.urls]
+repository = "https://github.com/youzi-2333/mcos"
+documentation = "https://github.com/youzi-2333/mcos/tree/main?tab=readme-ov-file"
+
+[project.dependencies]
+mcpi = "^1.2.1"

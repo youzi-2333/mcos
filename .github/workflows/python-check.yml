@@ -1,0 +1,25 @@
+name: Python Syntax Check
+
+on:
+  # 你可以根据需要修改触发条件
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.12
+      uses: actions/setup-python@v2
+      with:
+        # 选择一个适合你项目的 Python 版本
+        python-version: '3.12'
+    - name: Check Python syntax
+      run: |
+        # 查找所有 Python 文件并编译它们，以检查语法
+        find . -name '*.py' -exec python -m py_compile {} \;
